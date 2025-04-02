@@ -32,7 +32,8 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task)
     {
-        $data = $request->validate($this->validationRules());
+        $data = $request->validate($this->validationRules(true));
+        
         $task->update($data);
         return response()->json($task);
 
